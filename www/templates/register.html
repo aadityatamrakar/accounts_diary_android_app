@@ -1,0 +1,35 @@
+<ion-view title="Register" id="page6">
+  <ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon icon No Icon"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <form id="register-form2" class="list">
+      <ion-list id="register-list2">
+        <label class="item item-input item-floating-label" id="register-input3" name="business_name">
+          <span class="input-label">Business Name</span>
+          <input type="text" placeholder="Business Name">
+        </label>
+        <label class="item item-input item-floating-label" id="register-input4" name="phone_no">
+          <span class="input-label">Phone No</span>
+          <input type="tel" placeholder="Phone No">
+        </label>
+        <label class="item item-input item-floating-label" id="register-input5" name="email_id">
+          <span class="input-label">Email ID</span>
+          <input type="email" placeholder="Email ID">
+        </label>
+        <label class="item item-input item-floating-label" id="register-input6" name="pin">
+          <span class="input-label">Secure PIN</span>
+          <input type="number" placeholder="Secure PIN">
+        </label>
+      </ion-list>
+      <button id="register-button3" ui-sref="tabsController.dashboard()" style="border-radius:50px 50px 50px 50px;" class="button button-assertive button-block button-outline icon-right ion-chevron-right">Register</button>
+    </form>
+    <div id="register-markdown1" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-size:16px;">Already have a account ? Restore</p>
+    </div>
+    <div class="spacer" style="height: 25px;"></div>
+    <div id="register-markdown2" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-size:16px;">Contact Us</p>
+    </div>
+  </ion-content>
+</ion-view>

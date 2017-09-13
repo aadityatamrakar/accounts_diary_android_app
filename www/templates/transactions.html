@@ -1,39 +1,67 @@
-<ion-view title="Transactions" id="page3">
+<ion-view title="Transactions" cache-view="false">
   <ion-content padding="true" class="has-header">
-    <form id="transactions-form6" class="list">
-      <ion-toggle toggle-class="toggle-balanced" id="transactions-toggle4" name="cash_sale_toggle">Cash Sale</ion-toggle>
-      <label class="item item-input item-stacked-label" id="transactions-input18" name="party_name">
+    <ion-list class="list">
+      <label class="item item-select">
+        <span class="input-label">Transaction Type</span>
+        <select ng-model="data.type">
+          <option value="sa">Sales</option>
+          <option value="pu">Purchase</option>
+          <option value="ci">Cash in</option>
+          <option value="co">Cash out</option>
+          <option value="sr">Sale Return</option>
+          <option value="pr">Purchase Return</option>
+          <option value="ex">Expenses</option>
+        </select>
+      </label>
+      <ion-toggle toggle-class="toggle-balanced" ng-model="data.cash_sale" ng-if="data.type=='sa'">Cash Sale</ion-toggle>
+      <label class="item item-input item-stacked-label" ng-hide="data.cash_sale == true">
         <span class="input-label">Name</span>
-        <input type="text" placeholder="Party Name">
+        <input type="text" placeholder="Party Name" ng-model="data.party.name">
       </label>
-      <label class="item item-input" id="transactions-input19" name="invoice_no">
+      <label class="item item-input">
         <span class="input-label">Invoice No</span>
-        <input type="text" placeholder="ion-log-in">
+        <input type="text" placeholder="Bill No" ng-model="data.bill_no">
       </label>
-      <label class="item item-input" id="transactions-input20" name="invoice_date">
+      <label class="item item-input">
         <span class="input-label">Date</span>
-        <input type="date" placeholder="Date">
+        <input type="date" placeholder="Date" ng-model="data.date">
       </label>
-      <label class="item item-input item-stacked-label" id="transactions-input21" name="total_amount">
+    </ion-list>
+
+    <ion-item class="item-divider item-icon-right" ng-show="data.type == 'sa' || data.type == 'pu' || data.type =='sr' || data.type =='pr'" ng-click="toggle_i()">
+      Item Details
+      <span ng-hide="toggle_item" class="icon icon-accessory"><i class="ion-android-add"></i>&nbsp;Add Items&nbsp;<i class="ion-chevron-right" ></i></span>
+      <span ng-show="toggle_item" class="icon icon-accessory">View Items&nbsp;<i class="ion-chevron-down" ></i></span>
+    </ion-item>
+
+    <div class="text-center" style="padding: 15px 0px;" ng-show="data.type == 'sa' || data.type == 'pu' || data.type =='sr' || data.type =='pr'"  ng-if="toggle_item">
+      <button ng-click="open_modal()" class="button button-small button-outline button-positive button-round">
+        <i class="ion-android-add icon icon-accessory"></i>
+        Add Item
+      </button>
+    </div>
+
+    <ion-list class="list">
+      <label class="item item-input item-stacked-label" name="total_amount">
         <span class="input-label">Total Amount</span>
-        <input type="number" placeholder="Total Amount">
+        <input type="number" placeholder="Total Amount" ng-model="data.total_amount">
       </label>
-      <label class="item item-input" id="transactions-input22" name="paid_amount">
+      <label class="item item-input" name="paid_amount">
         <span class="input-label">Paid Amt.</span>
-        <input type="number" placeholder="In rupees">
+        <input type="number" placeholder="In rupees" ng-model="data.paid_amount">
       </label>
-      <label class="item item-input" id="transactions-input23" name="balance_amount">
+      <label class="item item-input" name="balance_amount">
         <span class="input-label">Balance</span>
-        <input type="number" placeholder="In rupees">
+        <input type="number" placeholder="In rupees" ng-model="data.balance">
       </label>
-      <label class="item item-input" id="transactions-input24" name="ref_no">
+      <label class="item item-input" name="ref_no">
         <span class="input-label">Ref No</span>
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="data.ref">
       </label>
-      <label class="item item-input item-stacked-label" id="transactions-input26" name="description">
+      <label class="item item-input item-stacked-label" name="description">
         <span class="input-label">Description</span>
-        <input type="text" placeholder="Description">
+        <input type="text" placeholder="Description" ng-model="data.desc">
       </label>
-    </form>
+    </ion-list>
   </ion-content>
 </ion-view>

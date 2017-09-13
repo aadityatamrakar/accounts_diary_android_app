@@ -2,23 +2,22 @@
   <ion-nav-buttons side="left">
     <button class="button button-icon icon No Icon"></button>
   </ion-nav-buttons>
-  <ion-content padding="true" class="manual-ios-statusbar-padding">
+  <ion-content padding="true" class="manual-ios-statusbar-padding login_bg">
     <form id="login-form1" class="list">
-      <div class="spacer" style="height: 90px;"></div>
-      <h1 id="login-heading1" style="color:#000000;text-align:center;">Account Books</h1>
-      <ion-list id="login-list1">
+      <div class="spacer" style="height: 80px;"></div>
+      <h1 class="login_head">Account Books</h1>
+      <div class="list loginBox" style="background-color: rgba(0, 0, 0, 0.5); color: #9A0000; font-size: 16px;">
         <label class="item item-input item-floating-label" id="login-input1" name="phone_no">
           <span class="input-label">Phone No</span>
-          <input type="tel" placeholder="Enter Register Phone No">
+          <input type="number" class="myinput" placeholder="Enter Register Phone No">
         </label>
         <label class="item item-input item-floating-label" id="login-input2" name="pin">
           <span class="input-label">Secure PIN</span>
-          <input type="number" placeholder="Enter Secure PIN Here">
+          <input class="myinput" type="number" placeholder="Enter Secure PIN Here">
         </label>
-      </ion-list>
-      <div class="spacer" style="height: 40px;"></div>
-      <a ui-sref="tabsController.dashboard()" id="login-button1" style="border-radius:50px 50px 50px 50px;" class="button button-assertive button-block button-outline icon-right ion-log-in">Log in</a>
-      <a ui-sref="register()" id="login-button2" class="button button-positive button-block button-clear">Or create an account</a>
+      </div>
+      <div class="spacer" style="height: 20px;"></div>
+      <a ui-sref="company()" id="login-button1" style="border-radius:50px; font-size: 25px; background-color: rgba(255, 255, 255, 0.5);" class="button button-assertive button-block button-outline icon-right ion-log-in">Log in</a>
     </form>
   </ion-content>
 </ion-view>

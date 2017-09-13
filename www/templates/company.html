@@ -1,0 +1,16 @@
+<ion-view title="Company List" hide-back-button="true">
+  <ion-nav-buttons side="left"></ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button icon ion-android-add" ui-sref="register()"> Add New</button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="manual-ios-statusbar-padding">
+
+    <ion-list>
+      <ion-item ng-click="select(company.id)" ng-repeat="company in companies" class="item-icon-right">
+        {{ company.name }}
+        <i class="icon icon-accessory ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

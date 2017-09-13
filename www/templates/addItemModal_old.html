@@ -1,0 +1,53 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-assertive bar">
+    <h1 class="title">Add Item</h1>
+    <button class="button button-clear button-primary" ng-click="item_modal.hide()">Close</button>
+  </ion-header-bar>
+  <ion-content>
+    <form class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name</span>
+        <input type="hidden" ng-model="item.id">
+        <input type="text" placeholder="Item Name" ng-model="item.name">
+      </label>
+      <ion-list ng-hide="selected">
+        <ion-item class="item-icon-right" ng-click="select_item(i)" ng-repeat="i in items | filter: item | limitTo: 10 track by i.id">
+          {{ i.name }}
+          <i class="icon icon-accessory ion-checkmark"></i>
+        </ion-item>
+      </ion-list>
+      <label class="item item-input">
+        <span class="input-label">Quantity</span>
+        <input type="number" placeholder="" ng-model="item.quantity">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Rate</span>
+        <input type="number" placeholder="Price" ng-model="item.rate">
+      </label>
+      <label class="item item-select">
+        <span class="input-label">Tax Percent</span>
+        <select ng-model="item.tax_percent">
+          <option value="0">0%</option>
+          <option value="5">5%</option>
+          <option value="12">12%</option>
+          <option value="18">18%</option>
+          <option value="28">28%</option>
+        </select>
+      </label>
+      <ion-toggle toggle-class="toggle-positive" ng-model="item.included">Inclusive</ion-toggle>
+      <label class="item item-input">
+        <span class="input-label">Amount (Inc. Tax)</span>
+        <input type="number" ng-model="item.rate_inc_tax" disabled>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Total (Inc. Tax)</span>
+        <input type="number" ng-model="item.grandtotal" value="">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">HSN Code</span>
+        <input type="text" placeholder="HSN code of Item" ng-model="item.hsn">
+      </label>
+    </form>
+    <button style="border-radius:50px 50px 50px 50px;" class="button button-positive button-block button-outline">Save</button>
+  </ion-content>
+</ion-modal-view>

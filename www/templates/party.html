@@ -1,46 +1,88 @@
-<ion-view title="Party" id="page2">
+<ion-view title="Party" cache-view="false" id="page2">
   <ion-content padding="true" class="has-header">
     <form id="party-form3" class="list">
       <label class="item item-input item-stacked-label" id="party-input8">
         <span class="input-label">Name</span>
-        <input type="text" placeholder="Party Name">
+        <input type="text" placeholder="Party Name" ng-model="data.name" ng-focus="focuson==&quot;name&quot;">
       </label>
       <label class="item item-input item-stacked-label" id="party-input9" name="phone_no">
         <span class="input-label">Phone No</span>
-        <input type="text" placeholder="Party Contact No">
+        <input type="text" placeholder="Party Contact No" ng-model="data.phone_no">
       </label>
       <label class="item item-input item-stacked-label" id="party-input10" name="gstin">
         <span class="input-label">GSTIN</span>
-        <input type="text" placeholder="15 Char Code">
+        <input type="text" placeholder="15 Char Code" ng-model="data.gstin" ng-keyup="select_state()">
       </label>
-      <label class="item item-select" id="party-select1" name="state">
+      <label class="item item-select" name="state">
         <span class="input-label">State</span>
-        <select>
-          <option>Andaman and Nicobar Islands</option>
-          <option>Andhra Pradesh</option>
-          <option>Arunachal Pradesh</option>
-          <option>Madhya Pradesh</option>
-          <option>Chattisgarh</option>
+        <select ng-model="data.state">
+          <option value="35">Andaman and Nicobar Islands</option>
+          <option value="37">Andhra Pradesh</option>
+          <option value="12">Arunachal Pradesh</option>
+          <option value="18">Assam</option>
+          <option value="10">Bihar</option>
+          <option value="04">Chandigarh</option>
+          <option value="22">Chattisgarh</option>
+          <option value="26">Dadra and Nagar Haveli</option>
+          <option value="25">Daman and Diu</option>
+          <option value="07">Delhi</option>
+          <option value="30">Goa</option>
+          <option value="24">Gujarat</option>
+          <option value="06">Haryana</option>
+          <option value="02">Himachal Pradesh</option>
+          <option value="01">Jammu and Kashmir</option>
+          <option value="20">Jharkhand</option>
+          <option value="29">Karnataka</option>
+          <option value="32">Kerala</option>
+          <option value="31">Lakshadweep Islands</option>
+          <option value="23">Madhya Pradesh</option>
+          <option value="27">Maharashtra</option>
+          <option value="14">Manipur</option>
+          <option value="17">Meghalaya</option>
+          <option value="15">Mizoram</option>
+          <option value="13">Nagaland</option>
+          <option value="21">Odisha</option>
+          <option value="34">Pondicherry</option>
+          <option value="03">Punjab</option>
+          <option value="08">Rajasthan</option>
+          <option value="11">Sikkim</option>
+          <option value="33">Tamil Nadu</option>
+          <option value="36">Telangana</option>
+          <option value="16">Tripura</option>
+          <option value="09">Uttar Pradesh</option>
+          <option value="05">Uttarakhand</option>
+          <option value="19">West Bengal</option>
         </select>
       </label>
-      <label class="item item-input item-stacked-label" id="party-input13" name="curr_bal">
-        <span class="input-label">Current Bal</span>
-        <input type="text" placeholder="Current Balance">
-      </label>
-      <label class="item item-input" id="party-input15" name="curr_bal_date">
-        <span class="input-label">Date</span>
-        <input type="date" placeholder="Current Balance as of Date">
-      </label>
-      <ion-toggle toggle-class="toggle-positive" id="party-toggle1">Recievable </ion-toggle>
       <label class="item item-input" id="party-input12" name="address">
         <span class="input-label">Address</span>
-        <input type="text" placeholder="Address (Optional)">
+        <input type="text" placeholder="Address (Optional)" ng-model="data.address">
       </label>
       <label class="item item-input" id="party-input11" name="email">
         <span class="input-label">Email ID</span>
-        <input type="email" placeholder="Email ID (Optional)">
+        <input type="email" placeholder="Email ID (Optional)" ng-model="data.email">
       </label>
-      <button id="party-button4" style="border-radius:50px 50px 50px 50px;" class="button button-assertive button-block button-outline icon-right ion-android-done-all">Save</button>
+      <div class="row">
+        <div class="col-40">
+          <label class="itemitem-input">
+            <input type="text" placeholder="Current Balance" ng-model="data.op_balance">
+          </label>
+        </div>
+        <div class="col-30">
+          as of date
+        </div>
+        <div class="col-40">
+          <input type="date" ng-model="data.op_date">
+        </div>
+      </div>
+      <label class="item item-select">
+        <span class="input-label">Balance Type</span>
+        <select ng-model="data.op_type">
+          <option value="OR">Recievable</option>
+          <option value="OP">Payable</option>
+        </select>
+      </label>
+      <button id="party-button4" ng-click="save_party()" style="border-radius:50px 50px 50px 50px;" class="button button-assertive button-block button-outline icon-right ion-android-done-all">Save</button>
     </form>
   </ion-content>
 </ion-view>

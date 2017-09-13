@@ -1,0 +1,40 @@
+<ion-view cache-view="false">
+  <ion-nav-title>{{party.name}}</ion-nav-title>
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button icon ion-edit" ui-sref="tabsController.party({edit:'yes',id: party_id})"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="">
+    <div class="bar bar-header bar-positive">
+      <button class="button icon ion-android-delete assertive"></button>
+      <h2 class="title">Transactions</h2>
+    </div>
+    <!--<div class="list card">-->
+    <!--  <ion-item class="item-icon-left">-->
+    <!--    <i class="icon ion-arrow-graph-up-right"></i>Sale {{party}}</ion-item>-->
+    <!--  <div class="item item-body">-->
+    <!--    <div class="show-list-numbers-and-dots">-->
+    <!--      <p style="margin-top:0px;color:#000000;">Invoice No: 4 07/09/2017-->
+    <!--      </p>-->
+    <!--    </div>-->
+    <!--    <div class="show-list-numbers-and-dots">-->
+    <!--      <p style="margin-top:0px;color:#000000;">Total: 1180</p>-->
+    <!--    </div>-->
+    <!--    <div class="show-list-numbers-and-dots">-->
+    <!--      <p style="margin-top:0px;color:#000000;">Item Details</p>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--  <div class="button-bar">-->
+    <!--    <button class="button button-dark button-block button-clear icon ion-eye"></button>-->
+    <!--    <button class="button button-assertive button-block button-clear icon ion-android-print"></button>-->
+    <!--    <button class="button button-balanced button-block button-clear icon ion-android-share"></button>-->
+    <!--  </div>-->
+    <!--</div>-->
+
+    <ion-list show-delete="delete_option">
+      <ion-item ng-repeat="t in transactions track by $index">
+        {{t.type}}
+        <ion-delete-button class="ion-minus-circled" ng-click="delete_item()"></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

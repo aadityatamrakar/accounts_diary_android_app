@@ -1,0 +1,18 @@
+<ion-view title="All Parties" cache-view="false">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="icon button ion-android-delete" ng-click="toggle_delete()"></button>
+    &nbsp;<button class="icon button ion-person-add" ui-sref="tabsController.party()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header">
+    <ion-list show-delete="delete_option">
+      <ion-item ui-sref="tabsController.partyTransactions({party: p.id})" ng-repeat="p in party track by p.id" class="item-icon-right">
+        {{p.name}}
+        <span class="icon icon-accessory">
+          ₹ 200&nbsp;&nbsp;
+          <i class="ion-chevron-right"></i>
+        </span>
+        <ion-delete-button class="ion-android-delete" ng-click="delete_party(p)"></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

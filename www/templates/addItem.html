@@ -1,0 +1,44 @@
+<ion-view title="Item" cache-view="false">
+  <ion-content padding="false" class="has-header">
+    <form class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name</span>
+        <input type="text" placeholder="Item Name" ng-model="data.name">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">HSN Code</span>
+        <input type="text" placeholder="HSN code of Item" ng-model="data.HSN">
+      </label>
+      <label class="item item-select">
+        <span class="input-label">Tax Percent</span>
+        <select ng-model="data.tax_percent">
+          <option value="0">0%</option>
+          <option value="5">5%</option>
+          <option value="12">12%</option>
+          <option value="18">18%</option>
+          <option value="28">28%</option>
+        </select>
+      </label>
+      <label class="item item-select">
+        <span class="input-label">Tax Type</span>
+        <select ng-model="data.tax_type">
+          <option value="in">Inclusive</option>
+          <option value="ex">Exclusive</option>
+        </select>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Barcode / Item Code</span>
+        <input type="text" placeholder="Optional" ng-model="data.code">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Sale Price</span>
+        <input type="number" placeholder="" ng-model="data.sale_p">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Purchase Price</span>
+        <input type="number" placeholder="" ng-model="data.purchase_p">
+      </label>
+    </form>
+    <button style="border-radius:50px;" ng-click="save()" class="button button-positive button-block button-outline">Save</button>
+  </ion-content>
+</ion-view>

@@ -1,9 +1,48 @@
+$assertive: #9A0000;
+$positive: #1A4487;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "../www/lib/ionic/scss";
 .right_bottom {
 	position: relative;
 	bottom: 0px;
 	left: 0px;
+}
+
+table.imagetable {
+	font-family: verdana,arial,sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+
+table.imagetable th {
+	background: #b5cfd2;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+
+table.imagetable td {
+	background: #dcddc0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+
+.sidemenu_bg {
+	background: #e43a15;
+	background: -webkit-linear-gradient(to left, #e65245, #e43a15);
+	background: linear-gradient(to left, #e65245, #e43a15);
+}
+
+.sidemenu_bg ion-item, .sidemenu_bg ion-item .item-content {
+	background: transparent;
+	color: white;
+	border-style: none;
 }
 
 body.platform-android {

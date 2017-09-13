@@ -1,16 +1,16 @@
 <ion-view id="page1">
-  <ion-tabs class="tabs-stable tabs-icon-top" id="tabsController-tabs1">
-    <ion-tab title="Home" icon="ion-android-home" href="#/page1/dashboard" id="tabsController-tab1">
-      <ion-nav-view name="tab1"></ion-nav-view>
+  <ion-tabs class="tabs-stable tabs-top tabs-icon-top" id="tabsController-tabs1">
+    <ion-tab title="Home" icon="ion-android-home" ui-sref="tabsController.dashboard">
+      <ion-nav-view name="dashboard_tab"></ion-nav-view>
     </ion-tab>
-    <ion-tab title="Party" icon="ion-android-person-add" href="#/page1/party" id="tabsController-tab5">
-      <ion-nav-view name="tab5"></ion-nav-view>
+    <ion-tab title="Party" icon="ion-android-person" ui-sref="tabsController.allParties">
+      <ion-nav-view name="party_tab"></ion-nav-view>
     </ion-tab>
-    <ion-tab title="Transactions" icon="ion-cash" href="#/page1/transactions" id="tabsController-tab2">
-      <ion-nav-view name="tab2"></ion-nav-view>
+    <ion-tab title="Transactions" icon="ion-cash" ui-sref="tabsController.transactions">
+      <ion-nav-view name="transaction_tab"></ion-nav-view>
     </ion-tab>
-    <ion-tab title="Reports" icon="ion-arrow-graph-up-right" href="#/page1/reports" id="tabsController-tab3">
-      <ion-nav-view name="tab3"></ion-nav-view>
+    <ion-tab title="Reports" icon="ion-arrow-graph-up-right" ui-sref="tabsController.reports">
+      <ion-nav-view name="report_tab"></ion-nav-view>
     </ion-tab>
   </ion-tabs>
 </ion-view>

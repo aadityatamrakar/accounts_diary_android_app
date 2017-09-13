@@ -6,7 +6,7 @@
     <title></title>
 
     <link rel="stylesheet" href="fonts/opensans/css/fonts.css">
-    
+
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
@@ -17,44 +17,20 @@
     -->
 
     <link href="css/ionic.app.css" rel="stylesheet">
-
-    <style type="text/css">
-      .platform-ios .manual-ios-statusbar-padding{
-        padding-top:20px;
-      }
-      .manual-remove-top-padding{
-        padding-top:0px; 
-      }
-      .manual-remove-top-padding .scroll{
-        padding-top:0px !important;
-      }
-      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
-        margin-left:-10px;
-        margin-right:-10px;
-      }
-      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
-        border-radius:0px;
-        border-left:0px;
-        border-right: 0px;
-      }
-      .show-list-numbers-and-dots ul{
-        list-style-type: disc;
-        padding-left:40px;
-      }
-      .show-list-numbers-and-dots ol{
-        list-style-type: decimal;
-        padding-left:40px;
-      }
-    </style>
+    <link href="css/style.css" rel="stylesheet">
 
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/routes.js"></script>
-    
+
     <script src="js/directives.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/websql.js"></script>
+    <script src="js/angular-translate.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/device.js"></script>
 
-    <!-- Only required for Tab projects w/ pages in multiple tabs 
+    <!-- Only required for Tab projects w/ pages in multiple tabs
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
 
@@ -72,46 +48,67 @@
       <ion-nav-view></ion-nav-view>
     </ion-side-menu-content>
     <ion-side-menu side="left" id="side-menu21">
-      <ion-header-bar class="bar-dark">
+      <ion-header-bar class="bar-assertive">
         <div class="title">Menu</div>
       </ion-header-bar>
-      <ion-content ng-controller="menuCtrl" padding="false" class="side-menu-left has-header ">
-        <ion-list id="menu-list3" data-componentid="list3">
-          <ion-item class="item-avatar item-icon-right" id="menu-list-item19" data-componentid="list-item19">
-            <img src="img/00000000000000000000000000000000">
-            <h2>Business Name</h2>
-            <p>Change Company</p>
-            <i class="icon ion-edit icon-accessory"></i>
+      <ion-content ng-controller="menuCtrl" padding="false" class="side-menu-left has-header sidemenu_bg">
+        <ion-list id="menu-list3" class="sidemenu_bg" data-componentid="list3">
+          <ion-item class="item-icon-right light" ui-sref="company" menu-close="" style="border-bottom: 2px solid darkred;">
+            <h2light data-letters="{{ company.name.substr(0,1).toUpperCase() }}">
+              <span style="text-transform: uppercase;">{{ company.name }}</span>
+              <p style="color:#eee; padding-left: 62px; margin-top: -15px; ">Change Company</p>
+              <i class="icon ion-edit icon-accessory"></i>
+            </h2light>
           </ion-item>
-          <ion-item class="item-icon-left item-icon-right" id="menu-list-item1" data-componentid="list-item1">
+          <ion-item class="item-icon-left item-icon-right" ui-sref="tabsController.dashboard()" menu-close="">
+            <i class="icon ion-android-home"></i>Home
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item1" ui-sref="tabsController.reports()" menu-close="" data-componentid="list-item1">
             <i class="icon ion-arrow-graph-up-right"></i>Reports
             <i class="icon ion-chevron-right icon-accessory"></i>
           </ion-item>
-          <ion-item class="item-icon-left item-icon-right" id="menu-list-item2" data-componentid="list-item2">
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item2" ui-sref="tabsController.allParties()" menu-close="" data-componentid="list-item2">
             <i class="icon ion-android-contacts"></i>All Parties
             <i class="icon ion-chevron-right icon-accessory"></i>
           </ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item3" data-componentid="list-item3">
-            <i class="icon ion-document-text"></i>Tax List</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item8" data-componentid="list-item8">
-            <i class="icon ion-home"></i>Bank Accounts</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item9" data-componentid="list-item9">
-            <i class="icon ion-cash"></i>Cash in Hand</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item10" data-componentid="list-item10">
-            <i class="icon ion-arrow-graph-down-right"></i>Expenses</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item12" data-componentid="list-item12">
-            <i class="icon ion-android-drafts"></i>Cheques</ion-item>
-          <ion-item class="item-divider" id="menu-list-item-divider1" data-componentid="list-item-divider1"> </ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item13" data-componentid="list-item13">
-            <i class="icon ion-android-settings"></i>Settings</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item14" data-componentid="list-item14">
-            <i class="icon ion-android-refresh"></i>Backup / Restore</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item15" data-componentid="list-item15">
-            <i class="icon ion-settings"></i>Utilities</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item16" data-componentid="list-item16">
-            <i class="icon ion-android-call"></i>Contact Us</ion-item>
-          <ion-item class="item-icon-left" id="menu-list-item17" data-componentid="list-item17">
-            <i class="icon ion-help-circled"></i>Tutorials</ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item11" ui-sref="itemList()" menu-close="" data-componentid="list-item11">
+            <i class="icon ion-ios-box"></i>Item List
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item8" ui-sref="bankAccountList()" menu-close="" data-componentid="list-item8">
+            <i class="icon ion-home"></i>Bank Accounts
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item9" ui-sref="cashInHand()" menu-close="" data-componentid="list-item9">
+            <i class="icon ion-cash"></i>Cash in Hand
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item10" ui-sref="expenseList()" menu-close="" data-componentid="list-item10">
+            <i class="icon ion-arrow-graph-down-right"></i>Expenses
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <hr style="color: white" data-componentid="html8">
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item13" ui-sref="settings()" menu-close="" data-componentid="list-item13">
+            <i class="icon ion-android-settings"></i>Settings
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item14" data-componentid="list-item14">
+            <i class="icon ion-android-refresh"></i>Backup / Restore
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item15" data-componentid="list-item15">
+            <i class="icon ion-settings"></i>Utilities
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item16" data-componentid="list-item16">
+            <i class="icon ion-android-call"></i>Contact Us
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" id="menu-list-item17" ui-sref="tutorials()" menu-close="" data-componentid="list-item17">
+            <i class="icon ion-help-circled"></i>Tutorials
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-side-menu>

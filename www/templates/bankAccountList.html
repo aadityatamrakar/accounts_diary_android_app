@@ -1,14 +1,22 @@
-<ion-view title="Bank Account List" id="page13">
-  <ion-content padding="true" class="has-header">
-    <ion-list id="bankAccountList-list8">
-      <ion-item id="bankAccountList-list-item48">Bank Adjustment Entry</ion-item>
-      <ion-item id="bankAccountList-list-item49">Bank to Bank Transfer</ion-item>
-      <ion-item id="bankAccountList-list-item50">Add Bank</ion-item>
+<ion-view title="Bank Account List">
+  <ion-content padding="false" class="has-header">
+    <!--<ion-list id="bankAccountList-list8">-->
+      <!--<ion-item id="bankAccountList-list-item48">Bank Adjustment Entry</ion-item>-->
+      <!--<ion-item id="bankAccountList-list-item49">Bank to Bank Transfer</ion-item>-->
+      <!--<ion-item id="bankAccountList-list-item50">Add Bank</ion-item>-->
+    <!--</ion-list>-->
+    <ion-list>
+      <ion-item ng-repeat="b in banks track by b.id" class="item-icon-right">
+        {{ b.name }}
+        <i class="ion-chevron-right icon-accessory icon"></i>
+      </ion-item>
     </ion-list>
-    <div class="spacer" style="height: 20px;"></div>
-    <ion-list id="bankAccountList-list10">
-      <ion-item id="bankAccountList-list-item57">Bank 1</ion-item>
-      <ion-item id="bankAccountList-list-item58">Bank 2</ion-item>
-    </ion-list>
+
   </ion-content>
+
+  <ion-floating-menu>
+    <ion-floating-item ng-click="openBankModal()" icon="ion-ios-home" text-class="blue_color" text="Add Bank"></ion-floating-item>
+    <ion-floating-item icon="ion-arrow-swap" text-class="blue_color" text="Bank to Bank Transfer"></ion-floating-item>
+    <ion-floating-item icon="ion-cash" text-class="blue_color" text="Bank Adjustments"></ion-floating-item>
+  </ion-floating-menu>
 </ion-view>

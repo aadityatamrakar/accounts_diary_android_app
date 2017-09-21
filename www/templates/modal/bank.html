@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-assertive bar">
+    <h1 class="title">Bank</h1>
+    <button ng-click="bank_modal.hide()" class="button button-clear">Close</button>
+  </ion-header-bar>
+  <ion-content>
+
+    <form class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Display Name</span>
+        <input type="text" placeholder="Account DIsplay Name" ng-model="data.name">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Bank Name</span>
+        <input type="text" placeholder="Bank Name (Optional)" ng-model="data.bank_name">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Account Number</span>
+        <input type="text" placeholder="Account Number (Optional)" ng-model="data.acc_no">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Current Balance</span>
+        <input type="number" placeholder="" ng-model="data.opening_bal">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">As of Date</span>
+        <input type="date" placeholder="" ng-model="data.opening_date">
+      </label>
+    </form>
+    <button style="border-radius:50px;" ng-click="addBank()" class="button button-positive button-block button-outline">Save</button>
+  </ion-content>
+</ion-modal-view>

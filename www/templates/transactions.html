@@ -1,5 +1,5 @@
 <ion-view title="Transactions" cache-view="false">
-  <ion-content padding="true" class="has-header">
+  <ion-content padding="false" class="has-header">
     <ion-list class="list">
       <label class="item item-select">
         <span class="input-label">Transaction Type</span>
@@ -14,11 +14,15 @@
         </select>
       </label>
       <ion-toggle toggle-class="toggle-balanced" ng-model="data.cash_sale" ng-if="data.type=='sa'">Cash Sale</ion-toggle>
-      <label class="item item-input item-stacked-label" ng-hide="data.cash_sale == true">
+      <label ng-click="open_modal('party')" class="item item-input item-stacked-label" ng-if="data.type!=='ex'&&data.cash_sale !== true">
         <span class="input-label">Name</span>
-        <input type="text" placeholder="Party Name" ng-model="data.party.name">
+        <input type="text" placeholder="Party Name" ng-model="party.name">
       </label>
-      <label class="item item-input">
+      <label class="item item-input" ng-if="data.type==='ex'">
+        <span class="input-label">Category</span>
+        <input type="text" placeholder="Expense Category" ng-model="data.category">
+      </label>
+      <label class="item item-input" ng-if="only_sp()">
         <span class="input-label">Invoice No</span>
         <input type="text" placeholder="Bill No" ng-model="data.bill_no">
       </label>
@@ -28,33 +32,49 @@
       </label>
     </ion-list>
 
-    <ion-item class="item-divider item-icon-right" ng-show="data.type == 'sa' || data.type == 'pu' || data.type =='sr' || data.type =='pr'" ng-click="toggle_i()">
+    <ion-item class="item-divider item-icon-right" ng-show="only_sp()" ng-click="toggle_i()">
       Item Details
       <span ng-hide="toggle_item" class="icon icon-accessory"><i class="ion-android-add"></i>&nbsp;Add Items&nbsp;<i class="ion-chevron-right" ></i></span>
       <span ng-show="toggle_item" class="icon icon-accessory">View Items&nbsp;<i class="ion-chevron-down" ></i></span>
     </ion-item>
 
-    <div class="text-center" style="padding: 15px 0px;" ng-show="data.type == 'sa' || data.type == 'pu' || data.type =='sr' || data.type =='pr'"  ng-if="toggle_item">
+    <div class="text-center" style="padding: 15px 0px;" ng-show="only_sp()"  ng-if="toggle_item">
       <button ng-click="open_modal()" class="button button-small button-outline button-positive button-round">
         <i class="ion-android-add icon icon-accessory"></i>
         Add Item
       </button>
     </div>
+    <table style="width: 100%;" class="imagetable" ng-if="s_items.length > 0">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Amt.</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="i in s_items track by $index">
+        <td>{{ i.name }}</td>
+        <td>{{ i.quantity }}</td>
+        <td>{{ i.stotal }}</td>
+      </tr>
+      </tbody>
+    </table>
 
     <ion-list class="list">
-      <label class="item item-input item-stacked-label" name="total_amount">
+      <label class="item item-input" name="total_amount">
         <span class="input-label">Total Amount</span>
-        <input type="number" placeholder="Total Amount" ng-model="data.total_amount">
+        <input type="number" ng-model="data.total_amount" ng-value="calc.total_amount()" ng-readonly="only_sp()" placeholder="Total Amount">
       </label>
-      <label class="item item-input" name="paid_amount">
+      <label class="item item-input" name="paid_amount" ng-if="only_sp()">
         <span class="input-label">Paid Amt.</span>
         <input type="number" placeholder="In rupees" ng-model="data.paid_amount">
       </label>
-      <label class="item item-input" name="balance_amount">
+      <label class="item item-input" name="balance_amount" ng-if="only_sp()">
         <span class="input-label">Balance</span>
-        <input type="number" placeholder="In rupees" ng-model="data.balance">
+        <input type="number" ng-value="calc.balance()" placeholder="In rupees">
       </label>
-      <label class="item item-input" name="ref_no">
+      <label class="item item-input" name="ref_no" ng-if="only_sp()||data.type=='ex'">
         <span class="input-label">Ref No</span>
         <input type="text" placeholder="" ng-model="data.ref">
       </label>
@@ -63,5 +83,7 @@
         <input type="text" placeholder="Description" ng-model="data.desc">
       </label>
     </ion-list>
+
+    <button style="border-radius:50px;" ng-click="save()" class="button button-positive button-block button-outline">Save</button>
   </ion-content>
 </ion-view>

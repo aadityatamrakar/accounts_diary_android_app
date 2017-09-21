@@ -224,7 +224,7 @@ angular.module('app.services', ['angular-websql', 'ngCordova.plugins.device'])
             },
             "inv_no":{
               "type": "NUMBER",
-              "null": "NOT NULL"
+              "null": "NULL"
             },
             "date":{
               "type": "TEXT",
@@ -249,6 +249,10 @@ angular.module('app.services', ['angular-websql', 'ngCordova.plugins.device'])
             "payment":{
               "type": "NUMBER",
               "null": "NULL"
+            },
+            "category":{
+              "type": "TEXT",
+              "null": "NULL"
             }
           });
         },
@@ -270,6 +274,10 @@ angular.module('app.services', ['angular-websql', 'ngCordova.plugins.device'])
               "null": "NOT NULL",
               "default": "CURRENT_TIMESTAMP"
             },
+            "transaction":{
+              "type": "NUMBER",
+              "null": "NOT NULL"
+            },
             "item":{
               "type": "NUMBER",
               "null": "NOT NULL"
@@ -282,7 +290,7 @@ angular.module('app.services', ['angular-websql', 'ngCordova.plugins.device'])
               "type": "NUMERIC",
               "null": "NOT NULL"
             },
-            "tax_amount":{
+            "rate_inc_tax":{
               "type": "NUMERIC",
               "null": "NOT NULL"
             },
@@ -380,6 +388,26 @@ angular.module('app.services', ['angular-websql', 'ngCordova.plugins.device'])
         all: function (){
           return $rootScope.db.selectAll('transactions');
         },
+        where: function (w){
+          return $rootScope.db.selectAll('transactions', w);
+        }
+      },
+      invoice_items: {
+        add: function (data){
+          return $rootScope.db.insert('invoice_items', data);
+        },
+        edit: function (id, data){
+          return $rootScope.db.update('invoice_items', data, {id: id});
+        },
+        del: function (id){
+          return $rootScope.db.del('invoice_items', {id: id});
+        },
+        view: function (id){
+          return $rootScope.db.selectLimit('invoice_items', {id: id}, 1);
+        },
+        all: function (){
+          return $rootScope.db.selectAll('invoice_items');
+        },
       },
       db: function (){
         return $rootScope.db;
@@ -405,5 +433,4 @@ angular.module('app.services', ['angular-websql', 'ngCordova.plugins.device'])
         }
       }
     }
-
   }]);

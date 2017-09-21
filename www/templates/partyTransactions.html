@@ -29,10 +29,16 @@
     <!--    <button class="button button-balanced button-block button-clear icon ion-android-share"></button>-->
     <!--  </div>-->
     <!--</div>-->
-
+    <br><br>
     <ion-list show-delete="delete_option">
-      <ion-item ng-repeat="t in transactions track by $index">
-        {{t.type}}
+      <ion-item class="item-divider">
+        Transaction Type
+        <span style="float: right;">Amount (₹)</span>
+      </ion-item>
+      <ion-item class="item-icon-right" ng-repeat="t in transactions track by $index">
+        {{ttype[t.type]}}
+        <span style="float: right;">₹{{ t.total_amount }}&nbsp;</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-delete-button class="ion-minus-circled" ng-click="delete_item()"></ion-delete-button>
       </ion-item>
     </ion-list>

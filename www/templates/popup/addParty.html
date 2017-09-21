@@ -1,0 +1,55 @@
+<form>
+  <label class="item item-input item-stacked-label" id="party-input8">
+    <span class="input-label">Name</span>
+    <input type="text" placeholder="Party Name" ng-model="n_party.name" ng-focus="focuson==&quot;name&quot;">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Phone No</span>
+    <input type="text" placeholder="Party Contact No" ng-model="n_party.phone_no">
+  </label>
+  <label class="item item-input item-stacked-label" id="party-input10" name="gstin">
+    <span class="input-label">GSTIN</span>
+    <input type="text" placeholder="15 Char Code" ng-model="n_party.gstin" ng-keyup="select_state()">
+  </label>
+  <label class="item item-select" name="state">
+    <span class="input-label">State</span>
+    <select ng-model="n_party.state">
+      <option value="35">Andaman and Nicobar Islands</option>
+      <option value="37">Andhra Pradesh</option>
+      <option value="12">Arunachal Pradesh</option>
+      <option value="18">Assam</option>
+      <option value="10">Bihar</option>
+      <option value="04">Chandigarh</option>
+      <option value="22">Chattisgarh</option>
+      <option value="26">Dadra and Nagar Haveli</option>
+      <option value="25">Daman and Diu</option>
+      <option value="07">Delhi</option>
+      <option value="30">Goa</option>
+      <option value="24">Gujarat</option>
+      <option value="06">Haryana</option>
+      <option value="02">Himachal Pradesh</option>
+      <option value="01">Jammu and Kashmir</option>
+      <option value="20">Jharkhand</option>
+      <option value="29">Karnataka</option>
+      <option value="32">Kerala</option>
+      <option value="31">Lakshadweep Islands</option>
+      <option value="23">Madhya Pradesh</option>
+      <option value="27">Maharashtra</option>
+      <option value="14">Manipur</option>
+      <option value="17">Meghalaya</option>
+      <option value="15">Mizoram</option>
+      <option value="13">Nagaland</option>
+      <option value="21">Odisha</option>
+      <option value="34">Pondicherry</option>
+      <option value="03">Punjab</option>
+      <option value="08">Rajasthan</option>
+      <option value="11">Sikkim</option>
+      <option value="33">Tamil Nadu</option>
+      <option value="36">Telangana</option>
+      <option value="16">Tripura</option>
+      <option value="09">Uttar Pradesh</option>
+      <option value="05">Uttarakhand</option>
+      <option value="19">West Bengal</option>
+    </select>
+  </label>
+</form>

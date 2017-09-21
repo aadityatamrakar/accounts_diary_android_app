@@ -1,0 +1,26 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-assertive bar">
+    <h1 class="title">Add Item</h1>
+    <div class="buttons button-right">
+      <button class="button button-primary" ng-click="addItem()"><i class="ion-android-add"></i> Add</button>
+      <button class="button button-clear button-primary" ng-click="item_modal.hide()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model="query.i.name">
+      </label>
+      <button ng-click="query.i = {}" class="button button-assertive button-clear">
+        Clear
+      </button>
+    </div>
+    <ion-list>
+      <ion-item class="item-icon-right" ng-click="addItem(i)" ng-repeat="i in items | filter: query.i track by i.id">
+        {{ i.name }}
+        <i class="icon icon-accessory ion-checkmark"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

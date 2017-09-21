@@ -1,48 +1,21 @@
-<ion-view title="Expense List" id="page15">
+<ion-view title="Expense List" id="page15" cache-view="false">
   <ion-nav-buttons side="right" class="has-header">
     <button class="button icon ion-android-add"></button>
   </ion-nav-buttons>
-  <ion-content padding="true" class="has-header">
+  <ion-content padding="false" class="has-header">
     <table class="imagetable" style="width: 100%">
       <thead>
         <tr>
+          <th>Date</th>
           <th>Expense Category</th>
           <th>Amount</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
-        </tr>
-
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
-        </tr>
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
-        </tr>
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
-        </tr>
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
-        </tr>
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
-        </tr>
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
-        </tr>
-        <tr>
-          <td>Office Furniture</td>
-          <td>Rs. 500</td>
+        <tr ng-repeat="e in expenses track by $index">
+          <td>{{ e.date|date:"dd/MM/yyyy" }}</td>
+          <td>{{ e.category }}</td>
+          <td>Rs. {{ e.total_amount }}</td>
         </tr>
       </tbody>
     </table>

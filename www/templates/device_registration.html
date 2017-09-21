@@ -1,13 +1,14 @@
 <ion-view title="Device License">
+  <ion-nav-buttons side="left"></ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <form class="list">
       <label class="item item-input">
         <span class="input-label">Name</span>
-        <input type="text" placeholder="" ng-model="data.name">
+        <input type="text" ng-model="data.name">
       </label>
       <label class="item item-input">
         <span class="input-label">Mobile</span>
-        <input type="number" placeholder="" ng-model="data.mobile">
+        <input type="number" ng-model="data.mobile">
       </label>
       <label class="item item-input">
         <span class="input-label">City</span>
@@ -21,7 +22,11 @@
         <span class="input-label">Address</span>
         <input type="text" ng-model="data.address">
       </label>
+      <label class="item item-input">
+        <span class="input-label">UUID</span>
+        <input type="text" ng-model="data.uuid" readonly style="background: transparent">
+      </label>
     </form>
-    <button ng-click="save()" style="border-radius:50px 50px 50px 50px;" class="button button-positive button-block button-outline">Register</button>
+    <button ui-sref="login()" style="border-radius:50px 50px 50px 50px;" class="button button-positive button-block button-outline">Register</button>
   </ion-content>
 </ion-view>

@@ -158,8 +158,10 @@ angular.module('app.routes', ['ngCordova.plugins.device'])
         controller: 'testingCtrl'
       });
 
-
-    $urlRouterProvider.otherwise('/page5')
-
+    if(localStorage.getItem('license') !== null){
+      $urlRouterProvider.otherwise('/page5')
+    }else{
+      $urlRouterProvider.otherwise('/deviceLicense')
+    }
 
   });

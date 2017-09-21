@@ -1,0 +1,26 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-assertive bar">
+    <h1 class="title">Party</h1>
+    <div class="buttons button-right">
+      <button class="button button-primary" ng-click="addParty($event)"><i class="ion ion-person-add"></i> Add</button>
+      &nbsp;<button class="button button-clear button-primary" ng-click="party_modal.hide()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model="query.p.name">
+      </label>
+      <button ng-click="query.p = {}" class="button button-assertive button-clear">
+        Clear
+      </button>
+    </div>
+    <ion-list>
+      <ion-item class="item-icon-right" ng-click="select_party(p, 'hm')" ng-repeat="p in parties | filter: query.p track by p.id">
+        {{ p.name }}
+        <i class="icon icon-accessory ion-checkmark"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

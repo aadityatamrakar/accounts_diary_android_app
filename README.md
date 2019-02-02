@@ -1,5 +1,7 @@
 # Accounts App
 
+For accounting purposes.
+
 Accounts App To-do List
 ==============
 
